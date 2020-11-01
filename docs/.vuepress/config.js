@@ -63,7 +63,7 @@ module.exports = {
     },
     blogger:{ // 博主信息，显示在首页侧边栏
       avatar: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2282841241,1791247967&fm=26&gp=0.jpg',
-      name: 'Evan Xu',
+      name: 'Loveagri',
       slogan: '前端界的小学生'
     },
     social:{ // 社交图标，显示于博主信息栏和页脚栏
@@ -88,7 +88,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: 'Evan Xu | <a href="https://github.com/loveagri/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签
+      copyrightInfo: 'Loveagri | <a href="https://github.com/loveagri" target="_blank">MIT License</a>', // 博客版权信息，支持a标签
     }
   },
   plugins: [ // 插件
@@ -203,3 +203,6 @@ module.exports = {
   //   }
   // }
 }
+
+
+// f78f78b64713da22f9551aeeeeac881ce0f4d3a1
