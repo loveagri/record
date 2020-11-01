@@ -1,0 +1,12 @@
+node_modules/
+.nyc_output/
+gb-pages/
+docs/.vuepress/dist/
+contents/.vuepress/dist/
+.vscode/
+.temp/
+*.exe
+*.cpp
+.idea
+.vscode
+urls.txt
