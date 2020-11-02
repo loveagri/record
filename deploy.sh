@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 git add .
-git commit -m 'deploy'
+git commit -m 'original'
 git push
 
 # 确保脚本抛出遇到的错误
