@@ -14,6 +14,7 @@ let catalogueData = {}; // 目录页数据
 function createSidebarData(sourceDir, collapsable){
   const sidebarData = {};
   const tocs = readTocs(sourceDir);
+  console.log(tocs)
   tocs.forEach(toc => { // toc是每个目录的绝对路径
 
     const tocArr = toc.split('\\')

@@ -1,71 +1,117 @@
-module.exports = [
-    {text: '首页', link: '/'},
-    {
-        text: '前端',
-        link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
-        items: [
+module.exports = [ // 插件
+    // [require('./plugins/love-me'), { // 鼠标点击爱心特效
+    //   color: '#11a8cd', // 爱心颜色，默认随机色
+    //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
+    // }],
+
+    ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
+        thirdparty: [ // 可选，默认 []
             {
-                text: '前端文章', items: [
-                    {text: 'JavaScript', link: '/pages/8143cc480faf9a11/'}, // 注意link结尾有斜杠和没有斜杠的区别
-                    {text: 'Vue', link: '/pages/802a1ca6f7b71c59/'},
-                ]
+                title: '在MDN中搜索',
+                frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
+                behindUrl: '' // 搜索链接的后面部分，可选，默认 ''
             },
             {
-                text: '学习笔记', items: [
-                    {text: '《JavaScript教程》笔记', link: '/note/javascript/'},
-                    {text: '《ES6 教程》笔记', link: '/note/es6/'},
-                    {text: '《Vue》笔记', link: '/note/vue/'},
-                    {text: '《TypeScript 从零实现 axios》', link: '/note/typescript-axios/'},
-                    {text: '小程序笔记', link: '/note/wx-miniprogram/'},
-                ]
+                title: '在Runoob中搜索',
+                frontUrl: 'https://www.runoob.com/?s=',
+            },
+            {
+                title: '在Vue API中搜索',
+                frontUrl: 'https://cn.vuejs.org/v2/api/#',
+            },
+            {
+                title: '在Bing中搜索',
+                frontUrl: 'https://cn.bing.com/search?q='
+            },
+            {
+                title: '通过百度搜索本站的',
+                frontUrl: 'https://www.baidu.com/s?wd=site%3Aloveagri.com%20'
             }
         ]
-    },
-    {
-        text: '页面',
-        link: '/ui/',
-        items: [
-            {text: 'HTML', link: '/pages/8309a5b876fc95e3/'},
-            {text: 'CSS', link: '/pages/0a83b083bdf257cb/'},
-        ]
-    },
-    {
-        text: '技术',
-        link: '/technology/',
-        items: [
-            {text: '技术文档', link: '/pages/9a7ee40fc232253e/'},
-            {text: 'GitHub技巧', link: '/pages/4c778760be26d8b3/'},
-            {text: 'Nodejs', link: '/pages/117708e0af7f0bd9/'},
-            {text: '博客搭建', link: '/pages/41f87d890d0a02af/'},
-        ]
-    },
-    {
-        text: '更多',
-        link: '/more/',
-        items: [
-            {text: '学习', link: '/pages/f2a556/'},
-            {text: '面试', link: '/pages/aea6571b7a8bae86/'},
-            {text: '心情杂货', link: '/pages/2d615df9a36a98ed/'},
-            {text: '友情链接', link: '/friends/'},
-        ]
-    },
-    {text: '关于', link: '/about/'},
-    {
-        text: '收藏',
-        link: '/pages/beb6c0bd8a66cea6/',
-        items: [
-            {text: '网站', link: '/pages/beb6c0bd8a66cea6/'},
-            {text: '资源', link: '/pages/eee83a9211a70f9d/'},
-            {text: 'Vue资源', link: '/pages/12df8ace52d493f6/'},
-        ]
-    },
-    {
-        text: '索引',
-        link: '/archives/',
-        items: [
-            {text: '分类', link: '/categories/'},
-            {text: '标签', link: '/tags/'},
-            {text: '归档', link: '/archives/'},
-        ]
-    }
+    }],
+
+    'vuepress-plugin-baidu-autopush', // 百度自动推送
+
+    ['one-click-copy', { // 代码块复制按钮
+        copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
+        copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
+        duration: 1000, // prompt message display time.
+        showInMobile: false // whether to display on the mobile side, default: false.
+    }],
+    ['demo-block', { // demo演示模块 https://github.com/xiguaxigua/vuepress-plugin-demo-block
+        settings: {
+            // jsLib: ['http://xxx'], // 在线示例(jsfiddle, codepen)中的js依赖
+            // cssLib: ['http://xxx'], // 在线示例中的css依赖
+            // vue: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js', // 在线示例中的vue依赖
+            jsfiddle: false, // 是否显示 jsfiddle 链接
+            codepen: true, // 是否显示 codepen 链接
+            horizontal: false // 是否展示为横向样式
+        }
+    }],
+    [
+        'vuepress-plugin-zooming', // 放大图片
+        {
+            selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
+            options: {
+                bgColor: 'rgba(0,0,0,0.6)'
+            },
+        },
+    ],
+    [
+        'vuepress-plugin-baidu-tongji', // 百度统计
+        {
+            hm: '503f098e7e5b3a5b5d8c5fc2938af002'
+        }
+    ],
+    [
+        'vuepress-plugin-comment', // 评论
+        // {
+        //   choosen: 'valine',
+        //   options: {
+        //     el: '#valine-vuepress-comment',
+        //     appId: 'qnS1jobNF7CROIQ0XYWBnVOH-gzGzoHsz',
+        //     appKey: 'LIKa0ePqFMkglQfOkN0JNK6c',
+        //     avatar: 'monsterid'
+        //   }
+        // },
+        {
+            choosen: 'gitalk',
+            options: {
+                clientID: 'a6e1355287947096b88b',
+                clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
+                repo: 'vuepress-theme-vdoing', // GitHub 仓库
+                owner: 'loveagri', // GitHub仓库所有者
+                admin: ['loveagri'], // 对仓库有写权限的人
+                // distractionFreeMode: true,
+                pagerDirection: 'last', // 'first'正序 | 'last'倒序
+                id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+                title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+                labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+                body: "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
+            }
+        }
+    ],
+    [
+        '@vuepress/last-updated', // "上次更新"时间格式
+        {
+            transformer: (timestamp, lang) => {
+                const moment = require('moment') // https://momentjs.com/
+                return moment(timestamp).format('YYYY/MM/DD, H:MM:SS');
+            }
+        }
+    ],
+    [
+        "@vuepress-reco/vuepress-plugin-bgm-player", // BGM播放器
+        {
+            audios: [
+                {
+                    name: ' My Love',
+                    artist: 'Westlife',
+                    url: 'https://cdn.jsdelivr.net/gh/loveagri/cdn/Westlife-My%20Love.mp3',
+                    cover: 'https://y.gtimg.cn/music/photo_new/T001R300x300M000002uNtOf2Xj5eB.jpg?max_age=2592000'
+                },
+            ],
+            autoShrink:true
+        },
+    ],
 ]
